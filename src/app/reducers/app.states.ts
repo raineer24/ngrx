@@ -1,2 +1,2 @@
-export interface App.States {
+export interface AppStates {
 }
