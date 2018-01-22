@@ -11,7 +11,7 @@ export const reducers: ActionReducerMap<AppState> = {
     productState: productReducer.reducer
 };
 
-export function loogger(reducer: ActionReducer<AppState>): ActionReducer<AppState> {
+export function logger(reducer: ActionReducer<AppState>): ActionReducer<AppState> {
     return function(state: AppState, action: any): AppState {
             console.log('state', state);
             console.log('state', action);
