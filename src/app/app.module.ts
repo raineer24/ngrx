@@ -4,13 +4,21 @@ import { StoreModule } from "@ngrx/store";
 import { ProductComponent } from "./components/product.component";
 
 import { AppComponent } from './app.component';
-import { Components } from './components.product/components.product.component';
-import { ComponentsComponent } from './components/components.component';
+
+import { reducers, metaReducers } from './reducers/reducers';
+
+import { StoreDevtoolsModule } from "@ngrx/store-devtools";
 
 
 @NgModule({
-  declarations: [AppComponent, ProductComponent, Components.ProductComponent, ComponentsComponent],
-  imports: [BrowserModule],
+  declarations: [AppComponent, ProductComponent],
+  imports: [
+    BrowserModule,
+    StoreModule.forRoot(reducers, { metaReducers }),
+    StoreDevtoolsModule.instrument({
+      maxAge: 25 // Retains last 25 states
+    })
+  ],
   providers: [],
   bootstrap: [AppComponent]
 })
